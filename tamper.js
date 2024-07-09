@@ -125,8 +125,10 @@ function add(name,id,type) {
     element.setAttribute("value", "");
     element.setAttribute("id", id);
     element.setAttribute("style", "width:200px");
+    element.setAttribute("style", "padding-left:15px")
 
     label.setAttribute("style", "font-weight:normal");
+    label.setAttribute("style", "padding-left:15px")
 
 
     //Append the element in page (in span).
@@ -140,7 +142,7 @@ function add(name,id,type) {
 //Create the Inputs
 function createInputs(){
     add("Report Name","BoxID", "text")
-    add("Description","BoxID2","text")
+    add("Report Description","BoxID2","text")
     add("Filter Remove?","BoxID3","checkbox")
     add("Vis Remove?","BoxID4","checkbox")
     createButton2()
@@ -486,6 +488,7 @@ function EngineV2(zEvent) {
     ArraytoMap(BlockArray)
     ReduceMaps()
     MaptoFinalArray(reducedarray)
+    VisFix()
     ExtraDeets()
     BuildTable(finalarray)
     INITHeaders()
@@ -637,6 +640,30 @@ function MaptoFinalArray(array) {
         ]);
     }
     //console.log(finalarray);
+}
+
+
+
+
+function VisFix(){
+
+
+    let FindVis = url2.indexOf("&vis") + 1
+    let FindDynorDomain = new Number
+    if (FindDynorDomain = url2.indexOf("dynamic_field") !== -1) {
+        FindDynorDomain = url2.indexOf("dynamic_field") + 1
+    }
+    else {
+        FindDynorDomain = url2.indexOf("embed_domain=") + 1
+    }
+
+    //Getting Vis Length
+    vislength = FindVis - FindDynorDomain
+    vislength = Math.abs(vislength)
+
+
+
+
 }
 
 
